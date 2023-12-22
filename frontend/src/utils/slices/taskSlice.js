@@ -32,4 +32,3 @@ export const selectError = (state) => state.tasks.error;
 export const selectStatus = (state) => state.tasks.status;
 
 export default taskSlice.reducer;
-ssh-keygen -t ed25519 -C "madhurrgupta@gmail.com"
