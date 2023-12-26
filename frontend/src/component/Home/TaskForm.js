@@ -53,7 +53,7 @@ const TaskForm = () => {
 	};
 
 	return (
-		<div>
+		<div className="justify-self-center w-2/3 ">
 			<form className="w-full max-w-sm" onSubmit={handleSubmit}>
 				<div className="border-b border-teal-500 py-2">
 					<input

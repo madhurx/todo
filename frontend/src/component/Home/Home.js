@@ -1,10 +1,12 @@
 import React from "react";
 import TaskForm from "./TaskForm";
+import TaskTable from "./TaskTable";
 
 const Home = () => {
 	return (
-		<div className="mx-4 my-4 content-center">
+		<div className=" px-1 my-4 grid grid-cols-2 gap-4">
 			<TaskForm />
+			<TaskTable />
 		</div>
 	);
 };
