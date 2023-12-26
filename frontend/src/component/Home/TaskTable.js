@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getTasksAction } from "../../utils/action/taskAction";
 
 const TaskTable = () => {
+	const dispatch = useDispatch();
+    const tableData = useSelector((state) => state.task?.tasks);
+
+    useEffect(
+        ()=>{ 
+            dispatch(getTasksAction());
+    console.log(tableData)
+
+
+        }, [dispatch]
+    )
+
+
 	return (
 		<div className="w-11/12 max-w-full">
 			<table className="w-full text-start table-fixed ">
