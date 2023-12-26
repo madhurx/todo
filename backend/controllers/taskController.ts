@@ -10,7 +10,6 @@ export const addNewTask = async (req: Request, res: Response): Promise<void> => 
             return;
         }
 
-
         const task = new Tasks({
             title: taskData.title,
             description: taskData.description,
@@ -27,9 +26,7 @@ export const addNewTask = async (req: Request, res: Response): Promise<void> => 
 
 export const allTasks = async (req: Request, res: Response): Promise<void> => {
 	try {
-        console.log("try")
-
-		const allTasks: any = await Tasks.find();
+		const allTasks: any = await Tasks.find().select('title description isCompleted');
 		res.status(200).json({ allTasks });
 	} catch (error) {
         console.log("Er")
