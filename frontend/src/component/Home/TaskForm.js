@@ -8,7 +8,6 @@ const TaskForm = () => {
 	// const [done, setDone] = useState();
 
 	const [formData, setFormData] = useState({
-		// initialize form fields here
 		title: "",
 		description: "",
 		isCompleted: false,
@@ -18,23 +17,14 @@ const TaskForm = () => {
 
 	const handleChange = (event) => {
 		const { name, value, type } = event.target;
-		// console.log(event.target);
-		// console.log(event.target["checked"], name);
-
-		// setFormData({
-		// 	...formData,
-		// 	[name]: value,
-		// });
 
 		setFormData((prevFormData) => {
 			if (type === "checkbox") {
-				// console.log("if");
 				return {
 					...prevFormData,
 					[name]: event.target["checked"],
 				};
 			} else {
-				// console.log("else");
 
 				return {
 					...prevFormData,
@@ -42,14 +32,16 @@ const TaskForm = () => {
 				};
 			}
 		});
-		// console.log(formData);
 	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const rs = await dispatch(addTaskAction(formData));
-
-		console.log(rs);
+		await dispatch(addTaskAction(formData));
+		setFormData({
+			title: "",
+			description: "",
+			isCompleted: false,
+		});
 	};
 
 	return (
